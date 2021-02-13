@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import Content from "./Content";
 
 @Entity('lesson')
 class Lesson {
@@ -7,6 +8,9 @@ class Lesson {
 
     @Column()
     description: string;
+
+    @OneToOne(type => Content, lesson => Lesson)
+    content: Content;
 
     @CreateDateColumn()
     created_at: Date;
