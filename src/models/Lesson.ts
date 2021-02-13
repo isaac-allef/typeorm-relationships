@@ -13,7 +13,7 @@ class Lesson {
     @OneToOne(type => Content, lesson => Lesson)
     content: Content;
 
-    @ManyToOne(type => Class, lessons => Lesson)
+    @ManyToOne(type => Class, lessons => Lesson, { eager: true })
     classe: Class;
 
     @CreateDateColumn()
