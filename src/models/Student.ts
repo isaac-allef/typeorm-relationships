@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import Class from "./Class";
 
 @Entity('student')
 class Student {
@@ -10,6 +11,10 @@ class Student {
 
     @Column()
     key: number;
+
+    @ManyToMany(type => Class, students => Student)
+    @JoinTable()
+    classes: Class[]
 
     @CreateDateColumn()
     created_at: Date;
