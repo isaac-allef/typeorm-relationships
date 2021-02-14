@@ -12,7 +12,7 @@ class Content {
     @Column()
     linkContent: string;
 
-    @OneToOne(type => Lesson, content => Content)
+    @OneToOne(type => Lesson, content => Content, { eager: true })
     @JoinColumn()
     lesson: Lesson;
 
