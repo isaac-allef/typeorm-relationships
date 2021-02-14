@@ -12,7 +12,7 @@ class Student {
     @Column()
     key: number;
 
-    @ManyToMany(type => Class, students => Student)
+    @ManyToMany(type => Class, students => Student, { eager: true })
     @JoinTable()
     classes: Class[]
 
